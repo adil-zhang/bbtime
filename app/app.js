@@ -1,15 +1,17 @@
 const express = require('express');
 const cors = require('cors');
 const sqlite3 = require('sqlite3').verbose();
+const path = require('path');
 
 const app = express();
+const dbPath = path.resolve(__dirname, 'database.sqlite');
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // 创建SQLite3数据库连接
-const db = new sqlite3.Database(':memory:', (err) => {
+const db = new sqlite3.Database(dbPath, (err) => {
   if (err) {
     console.error('无法连接到SQLite数据库:', err.message);
   } else {
@@ -86,7 +88,6 @@ app.put('/api/essays/:id', authenticate, (req, res) => {
     res.status(200).json({ message: '说说更新成功' });
   });
 });
-
 // 删除现有说说
 app.delete('/api/essays/:id', authenticate, (req, res) => {
   const { id } = req.params;

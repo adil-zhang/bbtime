@@ -1,18 +1,26 @@
 {
-  "name": "hexo-essay-api",
+  "name": "my-express-app",
   "version": "1.0.0",
-  "author": {
-    "name": "Adil Zhang",
-    "email": "adil_zhang@163.com"},
-  "description": "A simple REST API for managing essays in Hexo blog",
+  "description": "An Express app for managing essays",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adil-zhang/bbtime"
+  },
+  "author": "Adil <adil_zhang@163.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adil-zhang/bbtime/issues"
+  },
   "dependencies": {
-    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "sqlite3": "^5.0.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
